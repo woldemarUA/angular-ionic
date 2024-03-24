@@ -3,13 +3,13 @@
     <ion-input label="Nom d'utilisateur" labelPlacement="stacked" formControlName="username" type="text"></ion-input>
   </ion-item>
   <div *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
-    <ion-note color="danger">Merci d'entrer un nom d'utilisateur valide.</ion-note>
+    <ion-note color="danger" class="ion-margin-top">Merci d'entrer un nom d'utilisateur valide.</ion-note>
   </div>
 
   <ion-item>
     <ion-input label="Mot de passe" labelPlacement="stacked" formControlName="password" type="password"></ion-input>
   </ion-item>
-  <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+  <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="ion-margin-top">
     <ion-note color="danger">Un mot de passe est requis (minimum 3 caractères).</ion-note>
   </div>
 

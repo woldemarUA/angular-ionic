@@ -1,3 +1,22 @@
-<p>
-  add-article works!
-</p>
+<form [formGroup]="articleForm" (ngSubmit)="submit()">
+
+  <ion-item>
+    <ion-input label="Titre" labelPlacement="stacked" formControlName="title" type="text"></ion-input>
+  </ion-item>
+  <div *ngIf="articleForm.controls['title'].invalid && articleForm.controls['title'].touched">
+    <ion-note color="danger" class="ion-margin-top">Champs requis. Merci d'entrer titre de journal.</ion-note>
+  </div>
+  <ion-item>
+    <ion-input label="Auteur" labelPlacement="stacked" formControlName="author" type="text"></ion-input>
+  </ion-item>
+  <div *ngIf="articleForm.controls['author'].invalid && articleForm.controls['author'].touched"  class="ion-margin-top">
+    <ion-note color="danger">Champs requis. Merci d'entrer auteur de journal.</ion-note>
+  </div>
+  <ion-item>
+    <ion-textarea label="Description" labelPlacement="stacked" formControlName = "description"></ion-textarea>
+  </ion-item>
+  <div *ngIf="articleForm.controls['description'].invalid && articleForm.controls['description'].touched"  class="ion-margin-top">
+    <ion-note color="danger">Champs requis. Merci d'entrer description.</ion-note>
+  </div>
+  <ion-button expand="block" type="submit" [disabled]="!articleForm.valid" color="success">Envoyer</ion-button>
+</form>

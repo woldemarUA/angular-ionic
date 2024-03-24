@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { LoginResponse } from 'src/interfaces/auth';
 import { Observable } from 'rxjs';
 
+import { JWTService } from './jwt-service.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'authToken';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwtService: JWTService) {}
 
   login(username: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.authAPI}login`, {
@@ -24,6 +26,12 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  getDecodedToken(): any {
+    const token = localStorage.getItem(this.TOKEN_KEY);
+    if (!token) return null;
+    return this.jwtService.decodeToken(token);
   }
 
   logout() {

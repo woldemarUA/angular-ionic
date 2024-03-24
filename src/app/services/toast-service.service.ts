@@ -2,6 +2,16 @@ import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 type ToastPosition = 'top' | 'middle' | 'bottom';
+type ToastColors =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'dark'
+  | 'medium'
+  | 'light';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +21,7 @@ export class ToastService {
 
   async presentToast(
     message: string,
-    color: string,
+    color: ToastColors = 'primary',
     duration: number,
     position: ToastPosition = 'bottom',
     dismiss: boolean = false

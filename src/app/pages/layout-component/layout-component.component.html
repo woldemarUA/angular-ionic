@@ -27,6 +27,9 @@
         <ion-tab-button *ngIf="isAuth()" (click)='logout()'>
           Se déconnecter
         </ion-tab-button>
+        <ion-tab-button *ngIf="isAuth()" tab="articles/add">
+          Ajouter journal
+        </ion-tab-button>
         <ion-tab-button tab="search">
           <!-- <ion-icon name="search"></ion-icon> -->
           Search

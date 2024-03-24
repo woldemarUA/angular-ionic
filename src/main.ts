@@ -15,6 +15,8 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { provideHttpClient } from '@angular/common/http';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 if (environment.production) {
   enableProdMode();
 }
@@ -25,5 +27,7 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
   ],
 });
