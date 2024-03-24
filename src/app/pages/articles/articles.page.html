@@ -1,0 +1,22 @@
+
+
+  <ion-list [inset]="true">
+    <ion-item color="light">
+      <ion-label>
+       Image
+      </ion-label>
+      <ion-label>titre</ion-label>
+      <ion-label>auteur</ion-label>
+      <ion-label>cree par</ion-label>
+    </ion-item>
+    @for (article of articles; track article.id){
+      <ion-item button (click)=" goToArticleDetail(article.id, article)">
+        <ion-label><ion-avatar slot="start">
+          <img [src]="article.image" alt="{article.title}">
+        </ion-avatar></ion-label>
+        <ion-label>{{article.title}}</ion-label>
+        <ion-label>{{article.author}}</ion-label>
+        <ion-label>{{article.username}}</ion-label>
+      </ion-item>
+    }
+  </ion-list>

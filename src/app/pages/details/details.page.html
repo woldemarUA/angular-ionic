@@ -1,0 +1,16 @@
+
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/articles"></ion-back-button>
+</ion-buttons>
+  <ion-card >
+    <img [src]="article?.image" alt="{{article?.title}}" class="ion-margin-top ion-justify-content-center">
+    <ion-card-header>
+      <ion-card-title>{{article?.author}}</ion-card-title>
+      
+    </ion-card-header>
+    <ion-card-content>
+      {{article?.description}}
+      <ion-card-subtitle>Cree par {{article?.username}}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+

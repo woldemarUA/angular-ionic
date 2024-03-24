@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <router-outlet></router-outlet>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="articles">
+          Acceul
+        </ion-tab-button>
+        <!-- <ion-tab-button tab="articles">
+       Journal List
+        </ion-tab-button> -->
+        <ion-icon name="heart" aria-hidden="true"></ion-icon>
+        <ion-tab-button tab="login" *ngIf="!isAuth()">
+         
+          Se connecter
+        </ion-tab-button>
+          
+        <ion-tab-button *ngIf="isAuth()" (click)='logout()'>
+          Se déconnecter
+        </ion-tab-button>
+        <ion-tab-button tab="search">
+          <!-- <ion-icon name="search"></ion-icon> -->
+          Search
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
